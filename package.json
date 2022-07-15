@@ -1,0 +1,14 @@
+{
+  "name": "cruds-express",
+  "version": "1.0.0",
+  "description": "(Sitio web con varios CRUD de diferentes tematicas)",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js"
+  },
+  "author": "Jair Efren Ortega Reyes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
