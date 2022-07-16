@@ -50,7 +50,10 @@ export default function insertPerson(){
                     body : JSON.stringify(data)
                 },
                 resSuccess : (json)=>{
-
+                    $FORM_ACTION.reset()
+                    $FORM.classList.replace('visible', 'hidden')
+                    $BTN_INSERT.textContent = 'New +'
+                    cargarTable();
                 },
                 resError:(err)=>{
                     console.log(err)
@@ -70,10 +73,7 @@ export default function insertPerson(){
                     body : formData
                 },
                 resSuccess : (json)=>{
-                    $FORM_ACTION.reset()
-                    $FORM.classList.replace('visible', 'hidden')
-                    $BTN_INSERT.textContent = 'New +'
-                    cargarTable();
+
                 },
                 resError:(err)=>{
                     console.log(err)

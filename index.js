@@ -17,7 +17,8 @@ app.use('/', routes)
 //Establecer una ruta estatica
 app.use(express.static(__dirname+'/public'));
 
-
+//Establecer una ruta estatica para acceder a las imagenes del servidor
+app.use('/source', express.static(__dirname+'/uploads'));
 
 //Iniciando servidor
 app.listen(3000, ()=>{

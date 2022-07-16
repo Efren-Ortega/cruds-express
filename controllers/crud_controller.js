@@ -1,4 +1,5 @@
 const _model = require('../models/crud_model.js')
+const {unlink} = require('node:fs')
 
 module.exports = {
     selectpeople:function(req, res){
@@ -22,15 +23,22 @@ module.exports = {
 
     deletePeople:function(req,  res){
         let id = req.params.id;
+        let nameImage = req.body.image
+
         _model.methods.deletePerson(id)
         .then(result=>{
-            res.send({
+
+            unlink(`uploads/${nameImage}`, (err)=>{
+                if(err) return err;
+            })
+
+            return res.send({
                 'success':true,
                 'message':'Registro Eliminado',
             })
         })
         .catch(err=>{
-            res.send({
+            return res.send({
                 'success':false,
                 'message':'Registro No pudo ser Eliminado',
             })

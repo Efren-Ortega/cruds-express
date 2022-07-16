@@ -19,9 +19,16 @@ export default function cargarTabla(){
                 $template.getElementById('name').textContent = el.nombre,
                 $template.getElementById('last').textContent = el.apellido,
                 $template.getElementById('number').textContent = el.telefono
+                $template.getElementById('Avatar').src =  `http://localhost:3000/source/${el.image}`
 
-                $template.querySelectorAll('[data-delete]').forEach(element=>{element.dataset.id = el.id})
-                $template.querySelectorAll('[data-edit]').forEach(element=>{element.dataset.id = el.id})
+                $template.querySelectorAll('[data-delete]').forEach(element=>{
+                    element.dataset.id = el.id
+                    element.dataset.image = el.image
+                })
+                $template.querySelectorAll('[data-edit]').forEach(element=>{
+                    element.dataset.id = el.id
+                    element.dataset.image = el.image
+                })
 
                 $cloneTemplate = $template.cloneNode(true);
                 $fragment.appendChild($cloneTemplate)
