@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-
+const BD = require('./models/conexion_postgresql.js')
 
 const app = express();
 
@@ -8,6 +8,18 @@ const app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 
+//PRUEBA DE CONEXIÓN A LA BASE DE DATOS
+app.use('/testBD', (req, res)=>{
+        BD.query('SELECT *FROM persona')
+        .then(rows=>{
+            res.send(rows.rows)
+        })
+        .catch(err=>{
+            res.send({
+                'success':false,
+            })
+        })
+})
 
 //Establecer una ruta estatica
 app.use(express.static(__dirname+'/public'));

@@ -6,3 +6,12 @@ html{
 .title{
     font-size:9vw;
 }
+
+.icon-edit{
+    width: 1.3rem;
+    height: auto;
+}
+
+.icon-edit:hover{
+    fill: #3b82f6;
+}
