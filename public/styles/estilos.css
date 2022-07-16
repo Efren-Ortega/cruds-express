@@ -7,11 +7,15 @@ html{
     font-size:9vw;
 }
 
-.icon-edit{
+[class*='icon-']{
     width: 1.3rem;
-    height: auto;
 }
 
-.icon-edit:hover{
+[class*='icon-'] svg{
+    width: inherit;
+    height: inherit;
+}
+
+[class*='icon-'] svg:hover{
     fill: #3b82f6;
 }

@@ -17,5 +17,22 @@ module.exports = {
                 'message':'No se pudieron obtener los datos'
             })
         })
+    },
+
+    deletePeople:function(req,  res){
+        let id = req.params.id;
+        _model.methods.deletePerson(id)
+        .then(result=>{
+            res.send({
+                'success':true,
+                'message':'Registro Eliminado',
+            })
+        })
+        .catch(err=>{
+            res.send({
+                'success':false,
+                'message':'Registro No pudo ser Eliminado',
+            })
+        })
     }
 }
