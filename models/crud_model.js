@@ -10,7 +10,7 @@ module.exports = {
     methods:{
         selectAll:function(){
             return new Promise((resolve, reject)=>{
-                BD.query('SELECT *FROM persona', (err, rows)=>{
+                BD.query('SELECT *FROM persona order by id', (err, rows)=>{
                     callback(err, rows, resolve, reject)
                 })
             })
@@ -25,6 +25,20 @@ module.exports = {
         insertPersona:function(data){
             return new Promise((resolve, reject)=>{
                 BD.query(`INSERT INTO persona (id, Nombre, Apellido, Telefono, image) VALUES (default, '${data.nombre}', '${data.apellido}', '${data.telefono}', '${data.image}')`, (err, row)=>{
+                    callback(err, row, resolve, reject)
+                })
+            })
+        },
+        selectPerson:function(id){
+            return new Promise((resolve, reject)=>{
+                BD.query(`SELECT *FROM persona WHERE id=${id}`, (err, rows)=>{
+                    callback(err, rows, resolve, reject)
+                })
+            }) 
+        },
+        updatePerson:function(data, id){
+            return new Promise((resolve, reject)=>{
+                BD.query(`UPDATE persona SET Nombre = '${data.Nombre}', Apellido = '${data.Apellido}', Telefono = '${data.Telefono}', image = 'null' WHERE id = '${id}'`, (err, row)=>{
                     callback(err, row, resolve, reject)
                 })
             })

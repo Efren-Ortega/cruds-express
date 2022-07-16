@@ -5,6 +5,7 @@ module.exports = {
 
         _model.methods.selectAll()
         .then(rows=>{
+            console.log(rows.rows)
             return res.send({
                 'Success':true,
                 'message':'Los datos fueron obtenidos',
@@ -59,6 +60,49 @@ module.exports = {
             })
         })
 
+    },
+
+    selectPerson:function(req, res){
+        
+        _model.methods.selectPerson(req.params.id)
+        .then(row=>{
+            return res.send({
+                'Success':true,
+                'Message' : 'Datos seleccionados',
+                'Response':row.rows
+            })
+        })
+        .catch(err=>{
+            console.log(err)
+            return res.send({
+                'Success':false,
+                'Message' : 'No se pudo seleccionar el registro',
+            })
+        })
+    },
+
+    uploadPerson:function(req, res){
+
+        let data = {
+            Nombre : req.body.nombre,
+            Apellido : req.body.apellido,
+            Telefono : req.body.telefono
+        }
+
+        console.log(req.body)
+        _model.methods.updatePerson(data, req.params.id)
+        .then(()=>{
+            return res.send({
+                'Success':true,
+                'Message':'Registro Actualizado',
+            })
+        })
+        .catch((err)=>{
+            return res.send({
+                'Success':false,
+                'Message':'Error Registro No Actualizado'
+            })
+        })
     }
 
 

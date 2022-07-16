@@ -5,8 +5,8 @@ export default function deletePerson(){
     let id;
 
     document.addEventListener('click', e=>{
-        if(e.target.matches(`.icon-edit *`) || e.target.matches(`.icon-edit`)){
-            id = document.querySelector('[data-id]').dataset.id;
+        if(e.target.matches(`.icon-delete *`) || e.target.matches(`.icon-delete`)){
+            id = e.target.dataset.id;
             const settings = {
                 url:`http://localhost:3000/deletepeople/${id}`,
                 settings:{

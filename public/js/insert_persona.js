@@ -7,7 +7,7 @@ export default function insertPerson(){
           $FORM = document.getElementById('form'),
           $FORM_ACTION = document.getElementById('form-action')
     
-    let data
+    let data, $INPUT_HIDDEN = document.getElementById('idPerson')
 
     document.addEventListener('click', e=>{
         if(e.target===$BTN_INSERT){
@@ -17,12 +17,13 @@ export default function insertPerson(){
             }else if($BTN_INSERT.textContent === 'Cancelar'){
                 $FORM.classList.replace('visible', 'hidden')
                 $BTN_INSERT.textContent = 'New +'
+                $INPUT_HIDDEN.value=""
             }
         }
     })
 
     document.addEventListener('submit', e=>{
-        if(e.target === $FORM_ACTION){
+        if(e.target === $FORM_ACTION && $INPUT_HIDDEN.value === "" ){
             e.preventDefault()
 
             data = {
@@ -30,8 +31,6 @@ export default function insertPerson(){
                 apellido : document.getElementById('last').value,
                 telefono : document.getElementById('number').value
             }
-
-            //let {url, settings, resSuccess, resError} = parametros;
 
             const settings = {
                 url : 'http://localhost:3000/insertperson',
