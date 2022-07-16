@@ -24,7 +24,7 @@ module.exports = {
         },
         insertPersona:function(data){
             return new Promise((resolve, reject)=>{
-                BD.query(`INSERT INTO persona (id, Nombre, Apellido, Telefono, image) VALUES (default, '${data.nombre}', '${data.apellido}', '${data.telefono}', '${data.image}')`, (err, row)=>{
+                BD.query(`INSERT INTO persona (id, Nombre, Apellido, Telefono, image) VALUES (default, '${data.nombre}', '${data.apellido}', '${data.telefono}', '${data.Image}')`, (err, row)=>{
                     callback(err, row, resolve, reject)
                 })
             })
@@ -38,7 +38,7 @@ module.exports = {
         },
         updatePerson:function(data, id){
             return new Promise((resolve, reject)=>{
-                BD.query(`UPDATE persona SET Nombre = '${data.Nombre}', Apellido = '${data.Apellido}', Telefono = '${data.Telefono}', image = 'null' WHERE id = '${id}'`, (err, row)=>{
+                BD.query(`UPDATE persona SET Nombre = '${data.Nombre}', Apellido = '${data.Apellido}', Telefono = '${data.Telefono}', image = '${data.Image}' WHERE id = '${id}'`, (err, row)=>{
                     callback(err, row, resolve, reject)
                 })
             })

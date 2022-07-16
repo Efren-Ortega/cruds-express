@@ -38,12 +38,11 @@ module.exports = {
     },
     
     insertPerson:function(req, res){
-
         let data = {
             nombre:req.body.nombre,
             apellido:req.body.apellido,
             telefono:req.body.telefono,
-            image:'null'
+            Image: req.body.newNameImage
         };
         _model.methods.insertPersona(data)
         .then(()=>{
@@ -86,7 +85,8 @@ module.exports = {
         let data = {
             Nombre : req.body.nombre,
             Apellido : req.body.apellido,
-            Telefono : req.body.telefono
+            Telefono : req.body.telefono,
+            Image : req.body.newNameImage
         }
 
         console.log(req.body)
@@ -102,6 +102,29 @@ module.exports = {
                 'Success':false,
                 'Message':'Error Registro No Actualizado'
             })
+        })
+    },
+
+//  Es necesario instalar express-fileupload https://www.npmjs.com/package/express-fileupload
+    uploadImg:function(req, res){
+
+        const archivo = req.files.file
+        const newNameImage = req.body.newNameImage;
+        const urlUpload = __dirname + '/../uploads/' + newNameImage;
+
+
+        archivo.mv(urlUpload, (err)=>{
+            if(err){
+                return res.send({
+                    'success':false,
+                    'message': 'Error al subir la imagen'
+                })
+            }else{
+                return res.send({
+                    'success':true,
+                    'message': 'La imagen se ha subido al servidor'
+                })
+            }
         })
     }
 
