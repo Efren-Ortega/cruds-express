@@ -4,39 +4,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a1d2a9251b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="flex flex-col h-screen overflow-x-hidden">
 
-    <header>
-        <h1>CRUD's</h1>
+    <header class="text-center p-6 flex justify-around flex-wrap">
+        <h1 class="text-5xl font-bold p-4">CRUD's</h1>
         <nav>
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">People</a></li>
+            <ul class="flex justify-center flex-wrap">
+                <li class="option inline"><a class="font-bold py-3 my-4 mx-2 px-5 rounded bg-blue-500 block hover:text-white border-b-4 border-blue-800 hover:bg-blue-400 hover:border-blue-500" href="#">HOME</a></li>
+                <li class="option inline"><a class="font-bold py-3 my-4 mx-2 px-5 rounded bg-blue-500 block hover:text-white border-b-4 border-blue-800 hover:bg-blue-400 hover:border-blue-500" href="./pages/people.html">People</a></li>
+                <li class="option inline"><a class="font-bold py-3 my-4 mx-2 px-5 rounded bg-blue-500 block hover:text-white border-b-4 border-blue-800 hover:bg-blue-400 hover:border-blue-500" href="./pages/proximamente.html">Proximamente</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <div>
-            <i class="fa-solid fa-circle-info"></i>
-            <p>                
-                Esta página web fue realizada implementando el Framework Sails.js
+    <main class="grow w-screen flex flex-col items-center p-8">
+        <div class="info w-3/4 rounded-md p-2">
+            <i class="fa-solid fa-circle-info text-blue-500 text-lg float-left"></i>
+            <p class="text-center">                
+                En esta página web se esta implementando el Framework Express.js
                 en donde se realizaron CRUDs de diferentes tematicas de una Base de
                 Datos usando AJAX y Sockets.
             </p>
         </div>
 
-        <div>
-            <figure>
-                <img src="./images/imgIndex.png" alt="">
+        <div class="container flex justify-center mt-4">
+            <figure class="w-1/2">
+                <img class="w-full" src="./images/imgIndex.png" alt="">
             </figure>
         </div>
     </main>
 
-    <footer>
-        <p>Desarrollador por Jair Efren Ortega Reyes</p>
+    <footer class="pt-6 pb-4 pr-4">
+        <p class="italic text-right">Desarrollador por Jair Efren Ortega Reyes</p>
     </footer>
 </body>
 </html>
