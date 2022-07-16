@@ -34,5 +34,32 @@ module.exports = {
                 'message':'Registro No pudo ser Eliminado',
             })
         })
+    },
+    
+    insertPerson:function(req, res){
+
+        let data = {
+            nombre:req.body.nombre,
+            apellido:req.body.apellido,
+            telefono:req.body.telefono,
+            image:'null'
+        };
+        _model.methods.insertPersona(data)
+        .then(()=>{
+            return res.send({
+                'status':true,
+                'message':'Resgistro Actualizado'
+            })
+        })
+        .catch(err=>{
+            console.log(err)
+            return res.send({
+                'status':false,
+                'message':'Resgistro Actualizado'
+            })
+        })
+
     }
+
+
 }

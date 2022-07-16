@@ -10,7 +10,7 @@ export default function cargarTabla(){
     $tbody.textContent = '';
 
     const getPeople = {
-        url:'http://192.168.1.67:3000/selectpeople',
+        url:'http://localhost:3000/selectpeople',
         settings:{
             method:'GET',
         },

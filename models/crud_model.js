@@ -21,6 +21,13 @@ module.exports = {
                     callback(err, rows, resolve, reject)
                 })
             })
+        },
+        insertPersona:function(data){
+            return new Promise((resolve, reject)=>{
+                BD.query(`INSERT INTO persona (id, Nombre, Apellido, Telefono, image) VALUES (default, '${data.nombre}', '${data.apellido}', '${data.telefono}', '${data.image}')`, (err, row)=>{
+                    callback(err, row, resolve, reject)
+                })
+            })
         }
     }
 }

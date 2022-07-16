@@ -8,7 +8,7 @@ export default function deletePerson(){
         if(e.target.matches(`.icon-edit *`) || e.target.matches(`.icon-edit`)){
             id = document.querySelector('[data-id]').dataset.id;
             const settings = {
-                url:`http://192.168.1.67:3000/deletepeople/${id}`,
+                url:`http://localhost:3000/deletepeople/${id}`,
                 settings:{
                     'method':'DELETE'
                 },
