@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', e=>{
     cargarTabla()
 })
 
-
-deletePerson();
 insertPerson();
+deletePerson();
 uploadPerson();
+

@@ -89,17 +89,24 @@ module.exports = {
     },
 
     uploadPerson:function(req, res){
-
+        
         let data = {
             Nombre : req.body.nombre,
             Apellido : req.body.apellido,
             Telefono : req.body.telefono,
-            Image : req.body.newNameImage
+            Image : req.body.newNameImage,
+            oldImage : req.body.actualImage
         }
-
-        console.log(req.body)
         _model.methods.updatePerson(data, req.params.id)
         .then(()=>{
+
+            //Eliminar la imagen anterior para actualizarla con la nueva
+            unlink(`uploads/${data.oldImage}`, (err)=>{
+                if(err) return err;
+                
+                console.log("Eliminado")
+            })
+
             return res.send({
                 'Success':true,
                 'Message':'Registro Actualizado',
