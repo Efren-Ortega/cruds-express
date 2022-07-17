@@ -1,5 +1,7 @@
 import fetchAJAX from './fetch.js'
 import cargarTable from './cargar_tabla.js'
+import {signalToValidation} from './validations_tailwind.js'
+
 
 export default function insertPerson(){
 
@@ -25,7 +27,7 @@ export default function insertPerson(){
 
     document.addEventListener('submit', e=>{
         e.preventDefault()
-        if(e.target === $FORM_ACTION && $INPUT_HIDDEN.value === ""){
+        if(e.target === $FORM_ACTION && $INPUT_HIDDEN.value === "" && signalToValidation === true){
             
         //  Estas 3 lineas son para poder asignarle un nombre nuevo a la imagen y
         //  evitar que las imagenes con el mismo nombre se remplacen en el servidor.

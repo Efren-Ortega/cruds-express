@@ -26,26 +26,28 @@
                 <div class="relative  mb-4">
                     <label for="name">Nombre:</label><br>
                     <i class="absolute top-9 left-2 fa-solid fa-user"></i>
-                    <input class="outline-none h-9 border border-blue-800 pl-7 w-full" type="text" name="name" id="name">
+                    <input data-validation="required only-words" class="outline-none h-9 border border-blue-800 pl-7 w-full" type="text" name="name" id="name">
                 </div>
 
                 <div class="relative  mb-4">
                     <label for="last">Last:</label><br>
                     <i class="absolute top-9 left-2 fa-solid fa-user"></i>
-                    <input class="outline-none h-9 border border-blue-800 pl-7 w-full" type="text" name="last" id="last">
+                    <input data-validation="required only-words" class="outline-none h-9 border border-blue-800 pl-7 w-full" type="text" name="last" id="last">
                 </div>
 
                 <div class="relative  mb-4">
                     <label for="number">Number:</label><br>
                     <i class="absolute top-9 left-2 fa-solid fa-mobile-screen-button"></i>
-                    <input class="outline-none h-9 border border-blue-800 pl-7 w-full" type="number" name="number" id="number">
+                    <input data-validation="required only-numbers maxLength-13" class="outline-none h-9 border border-blue-800 pl-7 w-full" type="number" name="number" id="number">
                 </div>
 
                 <div class="relative  mb-4">
                     <label for="number">Number:</label><br>
                     <i class="absolute top-9 left-2 fa-solid fa-mobile-screen-button"></i>
-                    <input class="outline-none border border-blue-800 pl-7 w-full" type="file" name="image" id="image">
+                    <input data-validation="required" class="outline-none border border-blue-800 pl-7 w-full" type="file" name="image" id="image">
                 </div>
+
+                <div data-warn></div>
 
                 <input id="idPerson" type="hidden" value="">
                 <button class="px-6 h-10 bg-blue-500 text-white font-bold rounded border-b-4 border-blue-800 hover:bg-blue-400 hover:border-blue-500" type="submit">Guardar</button>

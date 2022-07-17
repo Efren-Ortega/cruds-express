@@ -1,5 +1,6 @@
 import fetchAJAX from './fetch.js'
 import cargarTabla from './cargar_tabla.js'
+import {signalToValidation} from './validations_tailwind.js'
 
 export default function (){
 
@@ -50,8 +51,9 @@ export default function (){
 
 
     document.addEventListener('submit', e=>{
-        if(e.target === $FORM_ACTION && $INPUT_HIDDEN.value !== ""){
-            e.preventDefault()
+        e.preventDefault()
+
+        if(e.target === $FORM_ACTION && $INPUT_HIDDEN.value !== "" && signalToValidation === true){
 
             const typeImg = $FILE.files[0].type;
 
